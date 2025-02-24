@@ -1,0 +1,49 @@
+.container {
+  padding: 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+mat-form-field {
+  width: 100%;
+  max-width: 400px;
+  margin-bottom: 20px;
+}
+
+table {
+  width: 100%;
+  margin: 20px 0;
+}
+
+.role-badge {
+  padding: 4px 8px;
+  border-radius: 12px;
+  font-size: 0.8em;
+  font-weight: 500;
+}
+
+.role-badge.admin {
+  background-color: #f0f8ff;
+  color: #1e90ff;
+}
+
+.role-badge.user {
+  background-color: #f0fff0;
+  color: #228b22;
+}
+
+.role-badge.guest {
+  background-color: #fff8dc;
+  color: #daa520;
+}
+
+.row-hover:hover {
+  background-color: #f5f5f5;
+  cursor: pointer;
+}
+
+.mat-elevation-z8 {
+  box-shadow: 0 5px 5px -3px rgba(0,0,0,.2),
+  0 8px 10px 1px rgba(0,0,0,.14),
+  0 3px 14px 2px rgba(0,0,0,.12);
+}

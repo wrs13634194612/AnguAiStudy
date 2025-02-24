@@ -1,0 +1,58 @@
+/* 在你的 CSS 文件中添加以下样式 */
+.custom-list {
+  background-color: #f8f9fa; /* 列表背景色 */
+  padding: 20px; /* 列表的内边距 */
+}
+
+.list-item {
+  background-color: #ffffff; /* 列表项背景色 */
+  margin-bottom: 10px; /* 列表项之间的间距 */
+  border-radius: 8px; /* 列表项的圆角 */
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1); /* 添加阴影效果 */
+  transition: transform 0.3s ease; /* 添加悬停动画 */
+}
+
+.list-item:hover {
+  transform: translateX(5px); /* 悬停时向右移动5px */
+  box-shadow: 0 4px 6px rgba(0,0,0,0.15); /* 悬停时增加阴影 */
+}
+
+.item-container {
+  padding: 15px; /* 内容的内边距 */
+  display: flex;
+  align-items: center; /* 垂直居中 */
+}
+
+.item-avatar {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background-color: #e0e0e0;
+  object-fit: cover;
+  margin-right: 15px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.15);
+  transition: transform 0.3s ease;
+}
+
+.item-avatar:hover {
+  transform: scale(1.05);
+}
+
+
+.item-content {
+  flex: 1; /* 文本内容占满剩余空间 */
+}
+
+.item-title {
+  color: #2c3e50; /* 标题颜色 */
+  margin: 0; /* 移除标题的默认外边距 */
+  font-size: 18px; /* 标题字体大小 */
+  font-weight: 600; /* 标题加粗 */
+}
+
+.item-description {
+  color: #7f8c8d; /* 描述文字颜色 */
+  margin: 5px 0 0 0; /* 描述文字的外边距 */
+  font-size: 14px; /* 描述文字大小 */
+  line-height: 1.5; /* 行高 */
+}

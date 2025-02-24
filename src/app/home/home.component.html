@@ -1,0 +1,25 @@
+<mat-list role="list">
+  <mat-list-item role="listitem" *ngFor="let item of listItems | slice: currentPage * pageSize : (currentPage + 1) * pageSize">
+    <div class="item-container" (click)="handleClick($event, item.id)">
+      <img
+        [src]="item.avatarUrl"
+        [alt]="item.title"
+        class="item-avatar"
+      />
+      <div class="item-content">
+        <h3 class="item-title">{{ item.title }}</h3>
+        <p class="item-description">{{ item.description }}</p>
+      </div>
+    </div>
+  </mat-list-item>
+</mat-list>
+
+<!-- 分页组件 -->
+<mat-paginator
+  [pageSize]="pageSize"
+  [pageSizeOptions]="[2, 4, 6]"
+  (page)="handlePageEvent($event)"
+  [length]="listItems.length"
+  [hidePageSize]="false"
+  showFirstLastButtons="true">
+</mat-paginator>

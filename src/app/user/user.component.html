@@ -1,0 +1,16 @@
+<p>欢迎来到登录页!</p>
+<button style="background: deepskyblue;color: white" mat-button (click)="getClick('测试数据123')">Basic</button>
+<button style="margin-left:50px;background: red;color: white" mat-button (click)="getLoginClick('测试数据456')">登录
+</button>
+
+<li>
+  You chose: <em>{{ animal() }}</em>
+</li>
+
+<mat-form-field>
+  <input matInput placeholder="Task" [(ngModel)]="dialogData.task">
+</mat-form-field>
+<mat-form-field style="margin-left: 50px">
+  <input matInput placeholder="Description" [(ngModel)]="dialogData.description">
+</mat-form-field>
+

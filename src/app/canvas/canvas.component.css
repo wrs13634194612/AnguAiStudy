@@ -1,0 +1,39 @@
+/* canvas.component.css */
+.toolbar {
+  background: #f8f9fa;
+  padding: 1rem;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  margin-bottom: 1.5rem;
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+}
+
+button {
+  padding: 0.5rem 1rem;
+  border: 2px solid #dee2e6;
+  border-radius: 6px;
+  background: white;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+button.active {
+  border-color: #4dabf7;
+  background: #e7f5ff;
+}
+
+.color-picker button {
+  width: 32px;
+  height: 32px;
+  padding: 0;
+  border-radius: 50%;
+}
+
+canvas {
+  border: 2px solid #dee2e6;
+  border-radius: 8px;
+  background: white;
+  cursor: crosshair;
+}

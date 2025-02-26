@@ -1,0 +1,25 @@
+<!-- canvas.component.html -->
+<div class="toolbar">
+  <button *ngFor="let tool of tools"
+          [class.active]="tool === selectedTool"
+          (click)="selectedTool = tool">
+    {{ tool }}
+  </button>
+
+  <div class="color-picker">
+    <button *ngFor="let color of colors"
+            [style.background]="color"
+            [class.active]="color === selectedColor"
+            (click)="selectedColor = color"></button>
+  </div>
+
+  <button (click)="clearCanvas()">Clear</button>
+</div>
+
+<canvas #canvas
+        width="800"
+        height="600"
+        (mousedown)="startDrawing($event)"
+        (mousemove)="draw($event)"
+        (mouseup)="stopDrawing()"
+        (mouseout)="stopDrawing()"></canvas>

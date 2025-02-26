@@ -1,0 +1,110 @@
+/* snake.component.css */
+.game-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.5rem;
+  padding: 2rem;
+  background: #24283b;
+  border-radius: 1.5rem;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+}
+
+.game-header {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  max-width: 400px;
+  color: #c0caf5;
+}
+
+.score-box {
+  background: #414868;
+  padding: 0.5rem 1rem;
+  border-radius: 0.5rem;
+  font-size: 1.1rem;
+}
+
+.controls {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.control-btn {
+  padding: 0.5rem 1rem;
+  border: none;
+  border-radius: 0.5rem;
+  cursor: pointer;
+  transition: transform 0.2s, opacity 0.2s;
+}
+
+.pause-btn {
+  background: linear-gradient(135deg, #7aa2f7, #2ac3de);
+  color: white;
+}
+
+.reset-btn {
+  background: linear-gradient(135deg, #f7768e, #ff9e64);
+  color: white;
+}
+
+.control-btn:hover {
+  opacity: 0.9;
+  transform: translateY(-1px);
+}
+
+.direction-controls {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.control-row {
+  display: flex;
+  justify-content: center;
+  gap: 0.5rem;
+}
+
+.direction-btn {
+  width: 3.5rem;
+  height: 3.5rem;
+  border: none;
+  border-radius: 1rem;
+  background: linear-gradient(145deg, #414868, #565f89);
+  color: #c0caf5;
+  font-size: 1.5rem;
+  cursor: pointer;
+  transition: all 0.2s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.direction-btn:hover {
+  background: linear-gradient(145deg, #565f89, #414868);
+  transform: scale(1.05);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+.direction-btn:active {
+  transform: scale(0.95);
+}
+
+/* 移动端优化 */
+@media (max-width: 480px) {
+  .game-container {
+    padding: 1rem;
+    width: 95vw;
+  }
+
+  canvas {
+    width: 95vw;
+    height: 95vw;
+  }
+
+  .direction-btn {
+    width: 3rem;
+    height: 3rem;
+    font-size: 1.2rem;
+  }
+}

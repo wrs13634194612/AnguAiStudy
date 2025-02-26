@@ -1,0 +1,27 @@
+<!-- snake.component.html -->
+<div class="game-container">
+  <div class="game-header">
+    <div class="score-box">
+      <span>得分: {{ score }}</span>
+    </div>
+    <div class="controls">
+      <button class="control-btn pause-btn" (click)="togglePause()">
+        {{ isPaused ? '继续' : '暂停' }}
+      </button>
+      <button class="control-btn reset-btn" (click)="resetGame()">重置</button>
+    </div>
+  </div>
+
+  <canvas id="gameCanvas" width="400" height="400"></canvas>
+
+  <div class="direction-controls">
+    <div class="control-row">
+      <button class="direction-btn up" (click)="handleDirection('UP')">↑</button>
+    </div>
+    <div class="control-row">
+      <button class="direction-btn left" (click)="handleDirection('LEFT')">←</button>
+      <button class="direction-btn down" (click)="handleDirection('DOWN')">↓</button>
+      <button class="direction-btn right" (click)="handleDirection('RIGHT')">→</button>
+    </div>
+  </div>
+</div>

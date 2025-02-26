@@ -1,0 +1,34 @@
+<!-- contact.component.html -->
+<div class="contact-container">
+  <!-- 主滚动区域 -->
+  <div #scrollContainer class="scroll-container">
+    <ng-container *ngFor="let letter of letters">
+      <!-- 字母分组 -->
+      <div [id]="'group-' + letter" class="letter-group">
+        <div class="group-title">{{ letter }}</div>
+        <!-- 联系人列表 -->
+        <div class="contact-item" *ngFor="let contact of contacts[letter]">
+          <div class="avatar">{{ contact.avatar }}</div>
+          <div class="info">
+            <div class="name">{{ contact.name }}</div>
+            <div class="phone">{{ contact.phone }}</div>
+          </div>
+        </div>
+      </div>
+    </ng-container>
+  </div>
+
+  <!-- 右侧字母导航 -->
+  <div class="index-bar"
+       (touchstart)="handleTouchStart($event)"
+       (touchmove)="handleTouchMove($event)"
+       (touchend)="handleTouchEnd()">
+    <div #letterItem
+         *ngFor="let letter of letters"
+         class="index-letter"
+         [class.active]="letter === currentLetter"
+         (click)="scrollTo(letter)">
+      {{ letter }}
+    </div>
+  </div>
+</div>

@@ -1,0 +1,51 @@
+.alert-dialog {
+  border-radius: 16px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+  padding: 24px;
+  background: #fff;
+  margin: 0 16px;
+}
+
+.alert-title {
+  margin: 0 0 16px 0;
+  font-size: 18px;
+  font-weight: 600;
+  color: rgba(0, 0, 0, 0.87);
+}
+
+.alert-icon {
+  margin-right: 8px;
+  font-size: 20px;
+}
+
+.action-buttons {
+  display: flex;
+  justify-content: flex-end;
+  gap: 8px;
+}
+
+.alert-action {
+  border-radius: 8px !important;
+  padding: 8px 16px !important;
+  font-size: 14px !important;
+  font-weight: 500 !important;
+  transition: all 0.3s ease;
+}
+
+.alert-dialog[ng-reflect-ng-class="success"] {
+  background: #e8f5e9;
+}
+
+.alert-dialog[ng-reflect-ng-class="success"] .alert-title,
+.alert-dialog[ng-reflect-ng-class="success"] .alert-action {
+  color: #2e7d32;
+}
+
+.alert-dialog[ng-reflect-ng-class="error"] {
+  background: #ffebee;
+}
+
+.alert-dialog[ng-reflect-ng-class="error"] .alert-title,
+.alert-dialog[ng-reflect-ng-class="error"] .alert-action {
+  color: #c62828;
+}

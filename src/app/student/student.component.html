@@ -1,0 +1,39 @@
+<div class="task-manager">
+  <div class="task-header">
+    <input
+      [(ngModel)]="newTask.title"
+      placeholder="Enter task title"
+      class="task-input"
+      (keyup.enter)="addTask()"
+    >
+    <button
+      class="primary-btn"
+      (click)="addTask()"
+    >
+      ＋ Add Task
+    </button>
+  </div>
+
+  <div class="task-list">
+    <div *ngFor="let task of tasks" class="task-item">
+      <input
+        [(ngModel)]="task.title"
+        class="task-input"
+      >
+      <select
+        [(ngModel)]="task.status"
+        (change)="updateTask(task)"
+        class="status-select"
+      >
+        <option value="pending">⏳ Pending</option>
+        <option value="completed">✅ Completed</option>
+      </select>
+      <button
+        class="danger-btn"
+        (click)="deleteTask(task.id!)"
+      >
+        🗑 Delete
+      </button>
+    </div>
+  </div>
+</div>

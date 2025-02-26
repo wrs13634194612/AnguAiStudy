@@ -1,0 +1,132 @@
+<!-- calculator.component.html -->
+<div class="calculator-container">
+  <div class="calculator-card">
+    <!-- 输入表单区域 -->
+    <div class="input-section">
+      <h2 class="calculator-title">贷款计算器</h2>
+
+      <div class="form-grid">
+        <!-- 原有表单控件保持不变 -->
+        <!-- 新增贷款金额输入 -->
+        <div class="form-group">
+          <label class="form-label">贷款金额（万元）</label>
+          <input
+            class="form-input"
+            type="number"
+            [(ngModel)]="loanAmount"
+            min="1"
+            step="1"
+            required
+          >
+        </div>
+
+        <!-- 新增贷款期限输入 -->
+        <div class="form-group">
+          <label class="form-label">贷款期限（年）</label>
+          <input
+            class="form-input"
+            type="number"
+            [(ngModel)]="loanYears"
+            (change)="updateRate()"
+            min="1"
+            max="30"
+            step="1"
+            required
+          >
+        </div>
+
+        <!-- 原有利率输入改造 -->
+        <div class="form-group">
+          <label class="form-label">年利率（%）</label>
+          <div class="rate-input-group">
+            <input
+              class="form-input"
+              type="number"
+              [(ngModel)]="customRate"
+              [disabled]="!useCustomRate"
+              step="0.01"
+              min="1"
+              max="20"
+            >
+            <button
+              class="toggle-rate-btn"
+              (click)="toggleRate()"
+              [class.active]="useCustomRate"
+            >
+              {{useCustomRate ? '恢复默认' : '自定义'}}
+            </button>
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="form-label">还款方式：</label>
+          <select class="form-select" [(ngModel)]="repaymentMethod">
+            <option value="equal-installment">等额本息</option>
+            <option value="equal-principal">等额本金</option>
+          </select>
+        </div>
+      </div>
+
+      <button class="calculate-btn" (click)="calculate()">开始计算</button>
+    </div>
+
+    <!-- 计算结果展示 -->
+    <div *ngIf="result" class="result-section">
+      <div class="result-card">
+        <h3 class="result-title">计算结果</h3>
+        <div class="result-grid">
+          <div *ngIf="repaymentMethod === 'equal-installment'" class="result-item">
+            <span class="result-label">每月还款</span>
+            <span class="result-value highlight">{{ result.monthlyPayment | currency:'CNY':'symbol':'1.2-2' }}</span>
+          </div>
+          <div *ngIf="repaymentMethod === 'equal-principal'" class="result-item">
+            <div class="result-item">
+              <span class="result-label">首月还款</span>
+              <span class="result-value highlight">{{ result.firstMonthPayment | currency:'CNY':'symbol':'1.2-2' }}</span>
+            </div>
+            <div class="result-item">
+              <span class="result-label">每月递减</span>
+              <span class="result-value highlight">{{ result.monthlyDecrease | currency:'CNY':'symbol':'1.2-2' }}</span>
+            </div>
+          </div>
+          <div class="result-item">
+            <span class="result-label">总还款额</span>
+            <span class="result-value">{{ result.totalPayment | currency:'CNY':'symbol':'1.2-2' }}</span>
+          </div>
+          <div class="result-item">
+            <span class="result-label">支付利息</span>
+            <span class="result-value accent">{{ result.totalInterest | currency:'CNY':'symbol':'1.2-2' }}</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 还款计划表 -->
+    <div *ngIf="installments.length" class="table-section">
+      <h3 class="table-title">还款计划明细</h3>
+      <div class="table-container">
+        <table class="installment-table">
+          <thead>
+          <tr>
+            <th class="period">期数</th>
+            <th>月供</th>
+            <th>本金</th>
+            <th>利息</th>
+            <th class="remaining">剩余本金</th>
+          </tr>
+          </thead>
+          <tbody>
+          <tr *ngFor="let item of installments; let even = even"
+              [class.even-row]="even"
+              class="data-row">
+            <td class="period">{{ item.period }}</td>
+            <td>{{ item.payment | currency:'CNY':'symbol':'1.2-2' }}</td>
+            <td>{{ item.principal | currency:'CNY':'symbol':'1.2-2' }}</td>
+            <td>{{ item.interest | currency:'CNY':'symbol':'1.2-2' }}</td>
+            <td class="remaining">{{ item.remaining | currency:'CNY':'symbol':'1.2-2' }}</td>
+          </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>

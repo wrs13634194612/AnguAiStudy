@@ -1,0 +1,30 @@
+<div class="game-container">
+  <button *ngIf="!isStarted"
+          class="start-btn"
+          (click)="startGame()">
+    🚀 开始挑战
+  </button>
+
+  <div class="status-box">
+    <div class="status-item">
+      <span class="label">当前数字</span>
+      <span class="value">{{ currentNumber }}</span>
+    </div>
+    <div class="status-item">
+      <span class="label">用时</span>
+      <span class="value">{{ timeUsed }}s</span>
+    </div>
+  </div>
+
+  <div class="grid" [style]="gridStyle">
+    <button
+      *ngFor="let num of numbers"
+      (click)="handleClick(num)"
+      [disabled]="!isStarted"
+      class="grid-btn"
+      [class.active]="num === currentNumber"
+    >
+      {{ num }}
+    </button>
+  </div>
+</div>

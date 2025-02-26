@@ -1,0 +1,29 @@
+<div class="calculator">
+  <div class="display">
+    <div class="sub-display">{{ subDisplay }}</div>
+    <div class="main-display">{{ mainDisplay }}</div>
+  </div>
+
+  <div class="buttons">
+    <button (click)="clear()">AC</button>
+    <button (click)="handleInput('7')">7</button>
+    <button (click)="handleInput('8')">8</button>
+    <button (click)="handleInput('9')">9</button>
+    <button class="operator" (click)="setOperator('÷')">÷</button>
+
+    <button (click)="handleInput('4')">4</button>
+    <button (click)="handleInput('5')">5</button>
+    <button (click)="handleInput('6')">6</button>
+    <button class="operator" (click)="setOperator('×')">×</button>
+
+    <button (click)="handleInput('1')">1</button>
+    <button (click)="handleInput('2')">2</button>
+    <button (click)="handleInput('3')">3</button>
+    <button class="operator" (click)="setOperator('-')">-</button>
+
+    <button (click)="handleInput('0')">0</button>
+    <button (click)="handleInput('.')">.</button>
+    <button (click)="calculate()">=</button>
+    <button class="operator" (click)="setOperator('+')">+</button>
+  </div>
+</div>

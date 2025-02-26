@@ -1,0 +1,244 @@
+/* calculator.component.css */
+/* 基础样式重置 */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* 容器样式 */
+.calculator-container {
+  max-width: 1200px;
+  margin: 2rem auto;
+  padding: 0 1rem;
+}
+
+.calculator-card {
+  background: #ffffff;
+  border-radius: 16px;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.08);
+  overflow: hidden;
+}
+
+/* 输入区域样式 */
+.input-section {
+  padding: 2rem;
+  background: linear-gradient(135deg, #f8f9ff 0%, #f1f4ff 100%);
+  border-bottom: 1px solid #e0e7ff;
+}
+
+.calculator-title {
+  color: #2d3954;
+  font-size: 1.8rem;
+  margin-bottom: 2rem;
+  font-weight: 600;
+}
+
+.form-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.form-group {
+  margin-bottom: 1rem;
+}
+
+.form-label {
+  display: block;
+  color: #4a5568;
+  margin-bottom: 0.5rem;
+  font-weight: 500;
+}
+
+.form-select, .form-input {
+  width: 100%;
+  padding: 0.75rem 1rem;
+  border: 2px solid #e2e8f0;
+  border-radius: 8px;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+}
+
+.form-select:focus, .form-input:focus {
+  border-color: #6366f1;
+  box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.1);
+}
+
+
+
+.rate-input-group {
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+}
+
+.toggle-rate-btn {
+  padding: 0.5rem 1rem;
+  border: 2px solid #e0e7ff;
+  border-radius: 8px;
+  background: white;
+  color: #4f46e5;
+  font-weight: 500;
+  transition: all 0.3s ease;
+}
+
+.toggle-rate-btn.active {
+  background: #6366f1;
+  color: white;
+  border-color: #6366f1;
+}
+
+/* 按钮样式 */
+.calculate-btn {
+  background: #6366f1;
+  color: white;
+  padding: 1rem 2rem;
+  border: none;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  width: 100%;
+  max-width: 300px;
+  display: block;
+  margin: 1.5rem auto 0;
+}
+
+.calculate-btn:hover {
+  background: #4f46e5;
+  transform: translateY(-1px);
+  box-shadow: 0 5px 15px rgba(99, 102, 241, 0.3);
+}
+
+/* 结果区域样式 */
+.result-section {
+  padding: 2rem;
+}
+
+.result-card {
+  background: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+  padding: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+.result-title {
+  color: #2d3954;
+  font-size: 1.4rem;
+  margin-bottom: 1.5rem;
+}
+
+.result-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1.5rem;
+}
+
+.result-item {
+  background: #f8f9ff;
+  padding: 1rem;
+  border-radius: 8px;
+  text-align: center;
+}
+
+.result-label {
+  display: block;
+  color: #64748b;
+  font-size: 0.9rem;
+  margin-bottom: 0.5rem;
+}
+
+.result-value {
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: #2d3954;
+}
+
+.highlight {
+  color: #6366f1;
+  font-size: 1.4rem;
+}
+
+.accent {
+  color: #ef4444;
+}
+
+/* 表格样式 */
+.table-section {
+  padding: 0 2rem 2rem;
+}
+
+.table-title {
+  color: #2d3954;
+  font-size: 1.4rem;
+  margin-bottom: 1.5rem;
+}
+
+.table-container {
+  border: 1px solid #e0e7ff;
+  border-radius: 12px;
+  overflow-x: auto;
+}
+
+.installment-table {
+  width: 100%;
+  border-collapse: collapse;
+  min-width: 800px;
+}
+
+.installment-table th {
+  background: #f8f9ff;
+  color: #4a5568;
+  font-weight: 600;
+  padding: 1rem;
+  text-align: center;
+  border-bottom: 2px solid #e0e7ff;
+}
+
+.installment-table td {
+  padding: 1rem;
+  text-align: center;
+  color: #4a5568;
+  border-bottom: 1px solid #f1f5f9;
+}
+
+.period, .remaining {
+  font-weight: 500;
+}
+
+.even-row {
+  background-color: #f8fafc;
+}
+
+.data-row:hover {
+  background-color: #f1f5f9;
+}
+
+/* 响应式设计 */
+@media (max-width: 768px) {
+  .calculator-container {
+    padding: 0;
+  }
+
+  .calculator-card {
+    border-radius: 0;
+  }
+
+  .input-section {
+    padding: 1.5rem;
+  }
+
+  .result-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .installment-table th,
+  .installment-table td {
+    padding: 0.75rem;
+    font-size: 0.9rem;
+  }
+}

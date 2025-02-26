@@ -1,0 +1,37 @@
+<!-- banner.component.html -->
+<div class="carousel-container"
+     (mouseenter)="pauseAutoPlay()"
+     (mouseleave)="resumeAutoPlay()"
+     (touchstart)="onTouchStart($event)"
+     (touchmove)="onTouchMove($event)"
+     (touchend)="onTouchEnd()">
+
+  <div class="slide-wrapper">
+    <ng-container *ngFor="let img of images; let i = index">
+      <div class="slide" @slide *ngIf="currentIndex === i"> <!-- 分离条件判断 -->
+        <img [src]="img" alt="Slide {{i + 1}}">
+      </div>
+    </ng-container>
+  </div>
+
+
+  <button class="nav-btn prev-btn" (click)="prev()">
+    <svg viewBox="0 0 24 24">
+      <path d="M15.41 16.59L10.83 12l4.58-4.59L14 6l-6 6 6 6 1.41-1.41z"/>
+    </svg>
+  </button>
+
+  <button class="nav-btn next-btn" (click)="next()">
+    <svg viewBox="0 0 24 24">
+      <path d="M8.59 16.59L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.41z"/>
+    </svg>
+  </button>
+
+  <div class="indicators">
+    <button *ngFor="let img of images; let i = index"
+            class="indicator"
+            [class.active]="i === currentIndex"
+            (click)="goTo(i)">
+    </button>
+  </div>
+</div>

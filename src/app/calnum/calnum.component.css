@@ -1,0 +1,125 @@
+/* calculator.component.css */
+.calculator {
+  background: #1a1a1a;
+  border-radius: 16px;
+  padding: 24px;
+  width: 320px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
+  border: 1px solid #333;
+  margin: 20px auto;
+}
+
+.display {
+  background: #000;
+  border-radius: 12px;
+  padding: 20px;
+  margin-bottom: 20px;
+  text-align: right;
+  border: 1px solid #333;
+}
+
+.sub-display {
+  color: #666;
+  font-size: 14px;
+  min-height: 20px;
+  margin-bottom: 8px;
+  font-family: 'Courier New', monospace;
+}
+
+.main-display {
+  color: #fff;
+  font-size: 36px;
+  font-weight: 300;
+  letter-spacing: -1px;
+  font-family: 'Segoe UI', sans-serif;
+}
+
+.buttons {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 8px;
+}
+
+button {
+  border: none;
+  border-radius: 8px;
+  padding: 18px;
+  font-size: 20px;
+  cursor: pointer;
+  transition: all 0.15s ease;
+  background: #2d2d2d;
+  color: #fff;
+  font-weight: 500;
+}
+
+button:hover {
+  background: #3d3d3d;
+  transform: translateY(-1px);
+}
+
+button:active {
+  transform: translateY(1px);
+}
+
+button.operator {
+  background: #ff9500;
+  color: #fff;
+}
+
+button.operator:hover {
+  background: #ffaa33;
+}
+
+button:nth-child(1) { /* AC 按钮 */
+  background: #ff3b30;
+  color: #fff;
+}
+
+button:nth-child(1):hover {
+  background: #ff453a;
+}
+
+button:nth-child(19) { /* = 按钮 */
+  background: #34c759;
+  color: #fff;
+  grid-column: span 2;
+}
+
+button:nth-child(19):hover {
+  background: #30d158;
+}
+
+/* 数字按钮特殊效果 */
+button:not(.operator):not(:first-child):not(:last-child) {
+  background: #262626;
+}
+
+/* 按钮文字阴影 */
+button {
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+}
+
+/* 输入动画 */
+button {
+  transition:
+    background 0.2s ease,
+    transform 0.1s cubic-bezier(0.4, 0, 0.2, 1),
+    box-shadow 0.2s ease;
+}
+
+/* 键盘聚焦效果 */
+button:focus-visible {
+  outline: 2px solid #007AFF;
+  outline-offset: 2px;
+}
+
+/* 显示区域渐变效果 */
+.display {
+  background: linear-gradient(145deg, #0a0a0a, #000);
+}
+
+/* 操作符按钮激活状态 */
+button.operator.active {
+  background: #ffaa33;
+  box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.2);
+}

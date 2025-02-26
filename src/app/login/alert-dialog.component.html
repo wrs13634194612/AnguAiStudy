@@ -1,0 +1,12 @@
+<div class="alert-dialog" [ngClass]="data.type">
+  <div class="alert-content">
+    <h3 class="alert-title">
+      <span class="alert-icon">  {{ data.type === 'success' ? '✅' : '❌' }} {{ data.message }} </span>
+    </h3>
+    <div class="action-buttons">
+      <button mat-button class="alert-action" (click)="dialogRef.close()">
+        确定
+      </button>
+    </div>
+  </div>
+</div>

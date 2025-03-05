@@ -1,0 +1,43 @@
+<div class="chat-container">
+  <!-- 连接状态指示 -->
+  <div class="connection-status" [class.connected]="connectionStatus">
+    {{ connectionStatus ? '🟢 已连接' : '🔴 连接断开' }}
+  </div>
+
+  <!-- 消息输入区域 -->
+  <div class="input-section">
+    <input
+      type="text"
+      [(ngModel)]="inputMessage"
+      placeholder="输入消息..."
+      (keyup.enter)="sendMessage()"
+      class="message-input"
+    >
+    <button
+      (click)="sendMessage()"
+      class="send-button"
+      [disabled]="!inputMessage.trim()"
+    >
+      发送
+    </button>
+  </div>
+
+  <!-- 消息展示区域 -->
+  <div class="message-list">
+    <div *ngFor="let msg of messages" class="message-item">
+      <div class="message-header">
+        <span class="timestamp">
+          {{ msg.payload.timestamp | date:'yyyy-MM-dd HH:mm:ss' }}
+        </span>
+        <span *ngIf="msg.payload.sender" class="sender">
+          {{ msg.payload.sender.name }}:
+        </span>
+      </div>
+      <div class="message-content">
+        {{ msg.payload.content }}
+        <span *ngIf="msg.event === 'system'" class="system-tag">[系统]</span>
+        <span *ngIf="msg.event === 'error'" class="error-tag">[错误]</span>
+      </div>
+    </div>
+  </div>
+</div>

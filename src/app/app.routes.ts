@@ -14,6 +14,9 @@ import {SnakeComponent} from './snake/snake.component';
 import {BannerComponent} from './banner/banner.component';
 import {ContactComponent} from './contact/contact.component';
 import {StudentComponent} from './student/student.component';
+import {TiktokComponent} from './tiktok/tiktok.component';
+import {WechatComponent} from './wechat/wechat.component';
+import {SpringbootComponent} from './springboot/springboot.component';
 
 export const routes: Routes = [
   {
@@ -63,6 +66,18 @@ export const routes: Routes = [
   {
     path: 'student',
     component: StudentComponent,
+  },
+  {
+    path: 'tiktok',
+    component: TiktokComponent,
+  },
+  {
+    path: 'wechat',
+    component: WechatComponent,
+  },
+  {
+    path: 'springboot',
+    component: SpringbootComponent,
   },
   {
     path: 'user',

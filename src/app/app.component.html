@@ -1,20 +1,31 @@
-<h1>主页启动页</h1>
-<nav>
-  <a routerLink="/home">首页</a>
-  <a routerLink="/set">设置</a>
-  <a routerLink="/user">个人中心</a>
-  <a routerLink="/calculator">房贷计算器</a>
-  <a routerLink="/calnum">计算器</a>
-  <a routerLink="/calendar">日历</a>
-  <a routerLink="/login">登录</a>
-  <a routerLink="/canvas">画板</a>
+<div class="app-container">
+  <aside class="sidebar">
+    <h1 class="app-logo">功能导航</h1>
+    <nav class="nav-menu">
+      <!-- 导航项保持原有结构 -->
+      <a routerLink="/home" routerLinkActive="active">首页</a>
+      <a routerLink="/set" routerLinkActive="active">设置</a>
+      <a routerLink="/user" routerLinkActive="active">个人中心</a>
+      <div class="menu-divider">工具模块</div>
+      <a routerLink="/calculator" routerLinkActive="active">房贷计算器</a>
+      <a routerLink="/calnum" routerLinkActive="active">科学计算器</a>
+      <a routerLink="/calendar" routerLinkActive="active">智能日历</a>
+      <div class="menu-divider">功能模块</div>
+      <a routerLink="/canvas" routerLinkActive="active">数字画板</a>
+      <a routerLink="/schulte" routerLinkActive="active">舒尔特方格</a>
+      <a routerLink="/snake" routerLinkActive="active">贪吃蛇</a>
+      <a routerLink="/banner" routerLinkActive="active">轮播图管理</a>
+      <div class="menu-divider">数据模块</div>
+      <a routerLink="/contact" routerLinkActive="active">联系人</a>
+      <a routerLink="/student" routerLinkActive="active">IndexDB数据库</a>
+      <a routerLink="/tiktok" routerLinkActive="active">成绩管理系统</a>
+      <a routerLink="/login" routerLinkActive="active">系统登录</a>
+      <a routerLink="/wechat" routerLinkActive="active">即时通讯</a>
+      <a routerLink="/springboot" routerLinkActive="active">nodejs增删改查</a>
 
-  <a routerLink="/schulte">舒尔特方格</a>
-  <a routerLink="/snake">贪吃蛇</a>
-
-  <a routerLink="/banner">轮播图</a>
-  <a routerLink="/contact">联系人列表</a>
-  <a routerLink="/student">学生管理系统</a>
-
-</nav>
-<router-outlet></router-outlet>
+    </nav>
+  </aside>
+  <main class="content-area">
+    <router-outlet></router-outlet>
+  </main>
+</div>
